@@ -1,0 +1,43 @@
+[project]
+name = "particle-life"
+version = "0.1.0"
+description = "2D Particle Life simulation"
+readme = "README.md"
+authors = [
+    { name = "Ibo" },
+    { name = "Marlon" },
+    { name = "Yassine" },
+    { name = "Tolga" },
+]
+requires-python = ">=3.12"
+dependencies = [
+    "numpy>=2.5.5",
+]
+
+[build-system]
+requires = ["uv_build>=0.9,<0.14"]
+build-backend = "uv_build"
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+extend-select = ["E", "W", "I", "B", "UP", "N", "SIM", "D"]
+ignore = ["D105", "D107"]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["D"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.6",
+]
